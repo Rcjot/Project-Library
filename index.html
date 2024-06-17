@@ -7,7 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <button id="clickme">CLICK ME!!!!</button>
+    <dialog>
+        <button id="closedlg" autofocus>close</button>
+        <label for="bookname">book name</label>
+        <input type="text" id="bookname">
+        <label for="bookauthor">book author</label>
+        <input type="text" id="bookauthor">
+        <label for="bookpages">pages</label>
+        <input type="text" id="bookpages" pattern="[0-9]+">
+        <label for="bookread">read</label>
+        <input type="checkbox" id="bookread">
+        <button id="submit">submit</button>
+    </dialog>
+
     <div id="library">
         
     </div>
