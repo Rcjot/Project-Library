@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body {
+#body {
     height: 100vh;  
     display: flex;
     flex-direction: column;
@@ -103,6 +103,9 @@ header button {
 }
 
 .libraryContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
 }

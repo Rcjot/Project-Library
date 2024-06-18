@@ -53,9 +53,18 @@ function Book(name, author, pages, read, index) {
         const readCheckBox = document.createElement('input');
         const readLabel = document.createElement('label');
         readLabel.htmlFor = 'readCheckBox';
-        readLabel.appendChild(document.createTextNode('Read'));
+        readLabel.appendChild(document.createTextNode('finished'));
         readCheckBox.setAttribute('type', 'checkbox');
         readCheckBox.checked = this.read;
+        const bookPlacedName = document.createElement('h1');
+        const bookPlacedAuthor = document.createElement('p');
+        const bookPlacedPages = document.createElement('p');
+        bookPlacedName.textContent = this.name;
+        bookPlacedAuthor.textContent = 'by ' + this.author;
+        bookPlacedPages.textContent = this.pages + ' pages';
+        bookPlaced.appendChild(bookPlacedName)
+        bookPlaced.appendChild(bookPlacedAuthor)
+        bookPlaced.appendChild(bookPlacedPages)
         bookPlaced.appendChild(readLabel);
         bookPlaced.appendChild(readCheckBox);
         
