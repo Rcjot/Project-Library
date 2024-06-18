@@ -8,23 +8,29 @@
 </head>
 <body>
     
-    <button id="clickme">CLICK ME!!!!</button>
+
     <dialog>
-        <button id="closedlg" autofocus>close</button>
-        <label for="bookname">book name</label>
-        <input type="text" id="bookname">
-        <label for="bookauthor">book author</label>
-        <input type="text" id="bookauthor">
-        <label for="bookpages">pages</label>
-        <input type="text" id="bookpages" pattern="[0-9]+">
-        <label for="bookread">read</label>
-        <input type="checkbox" id="bookread">
-        <button id="submit">submit</button>
+        <form action="#">
+            <button id="closedlg" autofocus>close</button>
+            <label for="bookname">book name</label>
+            <input type="text" id="bookname" placeholder="book name" autocomplete="off" required>
+            <label for="bookauthor">book author</label>
+            <input type="text" id="bookauthor" placeholder="author" autocomplete="off">
+            <label for="bookpages" >pages</label>
+            <input type="number" id="bookpages" placeholder="pages" autocomplete="off" pattern="[0-9]+" required>
+            <label for="bookread">read</label>
+            <input type="checkbox" id="bookread">
+            <button id="submit">submit</button>
+        </form>
+
     </dialog>
 
-    <div id="library">
-        
-    </div>
+    <header>
+        <h1>Library</h1>
+        <button id="clickme">add book</button>
+    </header>
+
+    <div id="library"></div>
 
 
     <script src="script.js"></script>

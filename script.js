@@ -4,20 +4,25 @@ const bookauthor = document.querySelector('#bookauthor')
 const bookpages = document.querySelector('#bookpages')
 const bookread = document.querySelector('#bookread')
 const submit = document.querySelector('#submit')
+const form = document.querySelector('form');
 const initialLibraryContainer = document.createElement('div');
 library.appendChild(initialLibraryContainer);
 let currentlibrarycontainer = initialLibraryContainer; //initialize currentLibraryContainer
 const myLibrary = [];
 
-submit.addEventListener("click", () => {
+submit.addEventListener("click", (event) => {
+    if (!form.checkValidity()) return 1;
     let name = bookname.value;
     let author = bookauthor.value;
     let pages = bookpages.value;
     let read = bookread.checked;
     let index = myLibrary.length;
     addBooktoLibrary(name, author, pages, read, index);
-    
-
+    dialog.close();
+    bookname.value = '';
+    bookauthor.value = '';
+    bookpages.value = '';
+    bookread.checked = false;
 })
 
 
@@ -63,6 +68,7 @@ function addBooktoLibrary(name, author, pages, read, index) {
 
     currentlibrarycontainer.remove(); //remove currentLibrary to update library
     const librarycontainer = document.createElement("div"); //make new library with new books
+    librarycontainer.classList.add('libraryContainer');
     currentlibrarycontainer = librarycontainer;
     library.appendChild(currentlibrarycontainer);
 
