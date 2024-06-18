@@ -4,7 +4,9 @@ const bookauthor = document.querySelector('#bookauthor')
 const bookpages = document.querySelector('#bookpages')
 const bookread = document.querySelector('#bookread')
 const submit = document.querySelector('#submit')
-
+const initialLibraryContainer = document.createElement('div');
+library.appendChild(initialLibraryContainer);
+let currentlibrarycontainer = initialLibraryContainer; //initialize currentLibraryContainer
 const myLibrary = [];
 
 submit.addEventListener("click", () => {
@@ -12,8 +14,9 @@ submit.addEventListener("click", () => {
     let author = bookauthor.value;
     let pages = bookpages.value;
     let read = bookread.checked;
-    addBooktoLibrary(name, author, pages, read);
-    //addBooktoLibrary(bookname.value, bookauthor.value, bookpages.value, bookread.checked);
+    let index = myLibrary.length;
+    addBooktoLibrary(name, author, pages, read, index);
+    
 
 })
 
@@ -27,14 +30,14 @@ function Book(name, author, pages, read, index) {
     this.index = index;
 
     this.createBook = function(){
+
         const bookPlaced = document.createElement("div");
         bookPlaced.classList.add('bookPlaced');
-        library.appendChild(bookPlaced); //append book to Library
+        currentlibrarycontainer.appendChild(bookPlaced); //append book to Library
         const deleteButton = document.createElement("button");
         deleteButton.classList.add('deleteButton');
         bookPlaced.appendChild(deleteButton);//append button to book
         deleteButton.textContent = 'X'
-
         deleteButton.addEventListener("click", () => {
             delete myLibrary[this.index];
             bookPlaced.remove();
@@ -42,15 +45,32 @@ function Book(name, author, pages, read, index) {
             console.log(myLibrary);
             console.log(myLibrary.length)
         });
+        const readCheckBox = document.createElement('input');
+        const readLabel = document.createElement('label');
+        readLabel.htmlFor = 'readCheckBox';
+        readLabel.appendChild(document.createTextNode('Read'));
+        readCheckBox.setAttribute('type', 'checkbox');
+        readCheckBox.checked = this.read;
+        bookPlaced.appendChild(readLabel);
+        bookPlaced.appendChild(readCheckBox);
+        
     }
 }
 
 function addBooktoLibrary(name, author, pages, read, index) {
     const newBook = new Book(name, author, pages, read, index);
     myLibrary.push(newBook);
-    
+
+    currentlibrarycontainer.remove(); //remove currentLibrary to update library
+    const librarycontainer = document.createElement("div"); //make new library with new books
+    currentlibrarycontainer = librarycontainer;
+    library.appendChild(currentlibrarycontainer);
+
     for (let book of myLibrary) {
+        if (typeof book === 'undefined') continue;
         book.createBook();
+        
+        
     }
 }
 
@@ -58,11 +78,11 @@ function addBooktoLibrary(name, author, pages, read, index) {
 
 
 
-const mybook1 = new Book('myBook', 'anon', 234, true, myLibrary.length);
-myLibrary.push(mybook1);
-addBooktoLibrary('adfadf', 'asdfa', 23, false, myLibrary.length);
-console.log(myLibrary);
-console.log('asfd' + myLibrary[0]);
+// const mybook1 = new Book('myBook', 'anon', 234, true, myLibrary.length);
+// myLibrary.push(mybook1);
+// addBooktoLibrary('adfadf', 'asdfa', 23, false, myLibrary.length);
+// console.log(myLibrary);
+// console.log('asfd' + myLibrary[0]);
 
 // modal creation
 const modalbutton = document.querySelector('#clickme');
