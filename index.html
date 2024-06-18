@@ -10,19 +10,34 @@
     
 
     <dialog>
-        <form action="#">
-            <button id="closedlg" autofocus>close</button>
-            <label for="bookname">book name</label>
-            <input type="text" id="bookname" placeholder="book name" autocomplete="off" required>
-            <label for="bookauthor">book author</label>
-            <input type="text" id="bookauthor" placeholder="author" autocomplete="off">
-            <label for="bookpages" >pages</label>
-            <input type="number" id="bookpages" placeholder="pages" autocomplete="off" pattern="[0-9]+" required>
-            <label for="bookread">read</label>
-            <input type="checkbox" id="bookread">
-            <button id="submit">submit</button>
-        </form>
+        <div class="dialogcontainer">
+            <button id="closedlg" autofocus>X</button>
+            <h1>New Book</h1>
+            <form action="#">
+                <div>
+                    <label for="bookname">book name</label>
+                    <input type="text" id="bookname" placeholder="name" autocomplete="off" required>
+                </div>
+                
+                <div>
+                    <label for="bookauthor">book author</label>
+                    <input type="text" id="bookauthor" placeholder="author" autocomplete="off">
+                </div>
+                <div>
+                    <label for="bookpages" >pages</label>
+                    <input type="number" id="bookpages" placeholder="pages" autocomplete="off" pattern="[0-9]+" required>
+                </div>
+                <div class="checkboxdiv">
+                    <label for="bookread">finished</label>
+                    <input type="checkbox" id="bookread">
+                </div>
+    
+                <button id="submit">Add book</button>
+            </form>
+    
+        </div>
 
+       
     </dialog>
 
     <header>
