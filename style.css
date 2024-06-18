@@ -3,8 +3,12 @@
     padding: 0px;
     box-sizing: border-box;
 }
+:root {
+    --libraryWidth: calc(100vw -200px);
 
-#body {
+}
+
+#mybody {
     height: 100vh;  
     display: flex;
     flex-direction: column;
@@ -22,7 +26,7 @@ dialog {
     flex-direction: column;
 }
 
-#closedlg {
+#closedlg{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,7 +60,8 @@ form div {
     gap: 5px;
 }
 
-form .checkboxdiv {
+form .checkboxdiv, .checklabeldiv {
+    display: flex;
     flex-direction: row;
     gap: 10px;
     align-items: center;
@@ -92,14 +97,65 @@ header button {
 #library {
     margin: 100px;
     height: min-content;
+    width: var(--libraryWidth);
 
-    /* border: 1px solid salmon; */
+/* 
+    border: 1px solid salmon; */
 }
 
 .bookPlaced {
-    height:200px;
-    width: 200px;
+    padding: 20px;
+    height: 450px;
+    width: 150px;
     border: 1px solid saddlebrown;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.checklabeldiv{
+    margin-bottom: auto;
+}
+
+.bookPlaced button {
+    border: 0;
+    border-radius: 10px;
+    background-color: rgba(221, 78, 78, 0.8);
+    color: white;
+}
+
+button, form #bookread, .bookread1 {
+    cursor: pointer;
+}
+
+#clickme {
+    border: 0;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgba(100, 149, 237, 0.6);
+    
+}
+
+main {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    background-color: rgba(31, 41, 55, 0.8);
+    padding: 16px;
+    justify-content: center;
+    height: fit-content;
+    flex-grow: 0;
+    color: white;
 }
 
 .libraryContainer {

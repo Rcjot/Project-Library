@@ -40,9 +40,9 @@ function Book(name, author, pages, read, index) {
         bookPlaced.classList.add('bookPlaced');
         currentlibrarycontainer.appendChild(bookPlaced); //append book to Library
         const deleteButton = document.createElement("button");
-        deleteButton.classList.add('deleteButton');
-        bookPlaced.appendChild(deleteButton);//append button to book
-        deleteButton.textContent = 'X'
+        deleteButton.classList.add('deleteButton'); // .deleteButton
+        
+        deleteButton.textContent = 'delete Book'
         deleteButton.addEventListener("click", () => {
             delete myLibrary[this.index];
             bookPlaced.remove();
@@ -55,18 +55,23 @@ function Book(name, author, pages, read, index) {
         readLabel.htmlFor = 'readCheckBox';
         readLabel.appendChild(document.createTextNode('finished'));
         readCheckBox.setAttribute('type', 'checkbox');
+        readCheckBox.classList.add('bookread1');
         readCheckBox.checked = this.read;
         const bookPlacedName = document.createElement('h1');
         const bookPlacedAuthor = document.createElement('p');
         const bookPlacedPages = document.createElement('p');
+        const checklabeldiv = document.createElement('div');
+        checklabeldiv.classList.add('checklabeldiv');
         bookPlacedName.textContent = this.name;
         bookPlacedAuthor.textContent = 'by ' + this.author;
         bookPlacedPages.textContent = this.pages + ' pages';
         bookPlaced.appendChild(bookPlacedName)
         bookPlaced.appendChild(bookPlacedAuthor)
         bookPlaced.appendChild(bookPlacedPages)
-        bookPlaced.appendChild(readLabel);
-        bookPlaced.appendChild(readCheckBox);
+        checklabeldiv.appendChild(readLabel);
+        checklabeldiv.appendChild(readCheckBox);
+        bookPlaced.appendChild(checklabeldiv);
+        bookPlaced.appendChild(deleteButton);//append button to book
         
     }
 }
