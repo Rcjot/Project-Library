@@ -42,7 +42,7 @@ class Book {
         this.deleteButton.textContent = 'delete Book'
         this.deleteButton.addEventListener("click", () => {
             delete myLibrary[this.index];
-            bookPlaced.remove();
+            this.bookPlaced.remove();
             console.log('it works!' + this.index);
             console.log(myLibrary);
             console.log(myLibrary.length)
